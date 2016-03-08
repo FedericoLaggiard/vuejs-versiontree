@@ -1,0 +1,167 @@
+#tree-wrapper {
+  position: relative;
+  margin-top: 50px;
+  /* ----- TEST ITEM --------*/
+}
+#tree-wrapper *,
+#tree-wrapper *:before,
+#tree-wrapper *:after {
+  box-sizing: border-box;
+}
+#tree-wrapper #root {
+  margin-left: -380px;
+}
+#tree-wrapper .branch {
+  position: relative;
+  margin-left: 380px;
+}
+#tree-wrapper .branch:before {
+  content: "";
+  width: 40px;
+  border-top: 2px solid #ef4315;
+  position: absolute;
+  left: -80px;
+  top: 50%;
+  margin-top: 1px;
+}
+#tree-wrapper .branch.fromRoot {
+  margin-left: 0 !important;
+}
+#tree-wrapper .entry {
+  position: relative;
+  min-height: 150px;
+}
+#tree-wrapper .entry:before {
+  content: '';
+  height: 100%;
+  border-left: 2px solid #ef4315;
+  position: absolute;
+  left: -40px;
+}
+#tree-wrapper .entry:after {
+  content: "";
+  width: 40px;
+  border-top: 2px solid #ef4315;
+  position: absolute;
+  left: -40px;
+  top: 50%;
+  margin-top: 1px;
+}
+#tree-wrapper .entry:first-child:before {
+  width: 5px;
+  height: 50%;
+  top: 50%;
+  margin-top: 2px;
+  border-radius: 5px 0 0 0;
+}
+#tree-wrapper .entry:first-child:after {
+  height: 5px;
+  border-radius: 5px 0 0 0;
+}
+#tree-wrapper .entry:last-child:before {
+  width: 5px;
+  height: 50%;
+  border-radius: 0 0 0 5px;
+}
+#tree-wrapper .entry:last-child:after {
+  height: 5px;
+  border-top: none;
+  border-bottom: 2px solid #ef4315;
+  border-radius: 0 0 0 5px;
+  margin-top: -4px;
+}
+#tree-wrapper .entry.sole:before {
+  display: none;
+}
+#tree-wrapper .entry.sole:after {
+  width: 40px;
+  height: 0;
+  margin-top: 1px;
+  border-radius: 0;
+}
+#tree-wrapper div.item {
+  display: block;
+  min-width: 300px;
+  height: 90px;
+  text-align: center;
+  border: 2px solid #bfbfbf;
+  border-radius: 0;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  margin-top: -50px;
+}
+#tree-wrapper div.item .version {
+  width: 100%;
+  height: 100%;
+  font-size: .875rem;
+  position: relative;
+}
+#tree-wrapper div.item .version.pending:before {
+  content: '';
+  position: absolute;
+  left: 27%;
+  top: 0;
+  width: 3px;
+  height: 100%;
+  background: yellow;
+}
+#tree-wrapper div.item .version div.img {
+  width: 26.6%;
+  height: 100%;
+  display: block;
+  float: left;
+  position: relative;
+  overflow: hidden;
+}
+#tree-wrapper div.item .version div.img img {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+#tree-wrapper div.item .version .content {
+  width: 73.4%;
+  height: 100%;
+  margin-left: 29.6%;
+  padding: 5px 10px;
+}
+#tree-wrapper div.item .version .content .top {
+  width: 100%;
+  height: 61%;
+  border-bottom: 2px solid #ef4315;
+  position: relative;
+}
+#tree-wrapper div.item .version .content .top div.version-n {
+  position: absolute;
+  bottom: -28%;
+  right: -8%;
+  background-color: #ef4315;
+  height: 1.5rem;
+  width: 1.5rem;
+  border-radius: 1.5rem;
+  line-height: 1.5rem;
+  z-index: 1;
+}
+#tree-wrapper div.item .version .content .top span.date {
+  color: #bebebe;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+#tree-wrapper div.item .version .content .bottom {
+  width: 100%;
+  height: 38%;
+  position: relative;
+}
+#tree-wrapper div.item .version .content .bottom span.status {
+  color: black;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+#tree-wrapper div.item .version .content .bottom span.status span.status-value {
+  color: #bebebe;
+}

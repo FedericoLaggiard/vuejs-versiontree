@@ -1,0 +1,215 @@
+// VARS
+
+//@white: #eee9dc;
+@bg: #2e6ba7;
+
+@connector-color: #ef4315;
+@connector-length: 80px;
+@connector-border-radius: 5px;
+
+@item-border-color: #bfbfbf;
+@item-offset: 150px;
+@item-width: 300px;
+@item-height: 100px;
+@item-border-radius: 0;
+
+//--------------------------------------
+
+#tree-wrapper{
+  position: relative;
+  margin-top: @item-height / 2;
+
+  *, *:before, *:after {
+    box-sizing: border-box;
+  }
+
+  #root{
+    margin-left: -(@connector-length + @item-width);
+  }
+
+  .branch{
+    position: relative;
+    margin-left: @connector-length + @item-width;
+    &:before{
+      content: "";
+      width: @connector-length / 2;
+      border-top: 2px solid @connector-color;
+      position: absolute;
+      left: -@connector-length;
+      top: 50%;
+      margin-top: 1px;
+    }
+
+    &.fromRoot {
+      margin-left: 0 !important;
+    }
+  }
+
+  .entry{
+    position: relative;
+    min-height: @item-offset;
+    &:before{
+      content: '';
+      height: 100%;
+      border-left: 2px solid @connector-color;
+      position: absolute;
+      left: -(@connector-length / 2);
+    }
+    &:after{
+      content: "";
+      width: @connector-length / 2;
+      border-top: 2px solid @connector-color;
+      position: absolute;
+      left: -(@connector-length / 2);
+      top: 50%;
+      margin-top: 1px;
+    }
+    &:first-child{
+      &:before{
+        width: @connector-border-radius;
+        height: 50%;
+        top: 50%;
+        margin-top: 2px;
+        border-radius: @connector-border-radius 0 0 0;
+      }
+      &:after{
+        height: @connector-border-radius;
+        border-radius: @connector-border-radius 0 0 0;
+      }
+    }
+    &:last-child{
+      &:before{
+        width: @connector-border-radius;
+        height: 50%;
+        border-radius: 0 0 0 @connector-border-radius;
+      }
+      &:after{
+        height: @connector-border-radius;
+        border-top: none;
+        border-bottom: 2px solid @connector-color;
+        border-radius: 0 0 0 @connector-border-radius;
+        margin-top: -@connector-border-radius + 1px;
+      }
+    }
+    &.sole{
+      &:before{
+        display: none;
+      }
+      &:after{
+        width: @connector-length / 2;
+        height: 0;
+        margin-top: 1px;
+        border-radius: 0;
+      }
+    }
+  }
+  div.item{
+    display: block;
+    min-width: @item-width;
+    //padding: 5px 10px;
+    height: @item-height - 10;
+    text-align: center;
+    border: 2px solid @item-border-color;
+    border-radius: @item-border-radius;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -(@item-height / 2);
+  }
+
+
+  /* ----- TEST ITEM --------*/
+
+
+  div.item .version{
+    width: 100%;
+    height: 100%;
+    font-size: .875rem;
+    position: relative;
+
+    &.pending:before{
+      content: '';
+      position: absolute;
+      left: 27%;
+      top:0;
+      width: 3px;
+      height: 100%;
+      background: yellow;
+    }
+
+    div.img {
+      width: 26.6%;
+      height: 100%;
+      display: block;
+      float: left;
+      position: relative;
+      overflow: hidden;
+
+      img{
+        width: 100%;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+      }
+    }
+
+    .content{
+      width: 73.4%;
+      height: 100%;
+      margin-left: 29.6%;
+      padding: 5px 10px;
+
+      .top{
+        width: 100%;
+        height: 61%;
+        border-bottom: 2px solid  @connector-color;
+        position: relative;
+
+        div.version-n{
+          position: absolute;
+          bottom: -28%;
+          right: -8%;
+          background-color: @connector-color;
+          height: 1.5rem;
+          width: 1.5rem;
+          border-radius: 1.5rem;
+          line-height: 1.5rem;
+          z-index: 1;
+        }
+
+        span.date{
+          color: #bebebe;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+        }
+      }
+
+      .bottom{
+        width: 100%;
+        height: 38%;
+        position: relative;
+
+        span.status{
+          color: black;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+
+          span.status-value{
+            color: #bebebe;
+          }
+        }
+
+      }
+    }
+  }
+
+}
+
+
+
+
+

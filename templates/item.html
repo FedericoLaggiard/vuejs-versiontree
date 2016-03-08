@@ -1,0 +1,33 @@
+<!-- IF IS ROOT -->
+<div class="branch" v-if="isRoot">
+
+  <div class="item" id="root" @click="nodeClick"></div>
+  <div class="branch fromRoot">
+    <tree-item
+        v-for="child in itemData.children"
+        :item-data="child"
+        :is-single="itemData.children.length === 1"
+        :is-root="false">
+    </tree-item>
+  </div>
+
+</div>
+<!-- ELSE -->
+<div class="entry"
+     v-else
+     :class="[ isSingle ? 'sole' : '' ]">
+
+  <div class="item" @click="nodeClick"></div>
+  <div class="branch" v-if="hasChilds">
+
+    <tree-item
+        v-for="child in itemData.children"
+        :item-data="child"
+        :is-single="itemData.children.length === 1"
+        :is-root="false">
+    </tree-item>
+
+  </div>
+
+
+</div>

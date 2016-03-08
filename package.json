@@ -1,0 +1,15 @@
+{
+  "name": "family-tree",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "lessc tree.less tree.css"
+  },
+  "author": "Federico Laggiard",
+  "license": "ISC",
+  "devDependencies": {
+    "less": "^2.6.0"
+  }
+}
